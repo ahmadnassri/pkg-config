@@ -1,0 +1,45 @@
+{
+  "version": "0.0.0",
+  "name": "package-config",
+  "description": "package-config",
+  "author": "Ahmad Nassri <ahmad@ahmadnassri.com> (https://www.ahmadnassri.com/)",
+  "homepage": "https://github.com/ahmadnassri/package-config",
+  "repository": "ahmadnassri/package-config",
+  "license": "MIT",
+  "keywords": [
+    "package-config"
+  ],
+  "engines": {
+    "node": ">=0.10"
+  },
+  "files": [
+    "index.js"
+  ],
+  "bugs": {
+    "url": "https://github.com/ahmadnassri/package-config/issues"
+  },
+  "scripts": {
+    "pretest": "standard && echint",
+    "test": "mocha",
+    "posttest": "npm run coverage",
+    "coverage": "istanbul cover --dir coverage _mocha -- -R dot",
+    "codeclimate": "codeclimate < coverage/lcov.info"
+  },
+  "echint": {
+    "ignore": [
+      "coverage/**"
+    ]
+  },
+  "devDependencies": {
+    "codeclimate-test-reporter": "0.0.4",
+    "echint": "^1.1.2",
+    "istanbul": "^0.3.14",
+    "mocha": "^2.2.5",
+    "should": "^6.0.3",
+    "standard": "^3.11.1"
+  },
+  "dependencies": {
+    "debug": "^2.2.0",
+    "find-root": "^0.1.1"
+  }
+}

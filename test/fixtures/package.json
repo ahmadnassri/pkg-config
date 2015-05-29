@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "name": "dummy-package",
+  "config": {
+    "foo": {
+      "bar": "baz"
+    }
+  },
+  "custom": {
+    "foo": "bar"
+  }
+}
