@@ -1,7 +1,7 @@
 {
   "version": "0.0.0",
   "name": "pkg-config",
-  "description": "pkg-config",
+  "description": "parse the closest `package.json` and get package specific configurations",
   "author": "Ahmad Nassri <ahmad@ahmadnassri.com> (https://www.ahmadnassri.com/)",
   "homepage": "https://github.com/ahmadnassri/pkg-config",
   "repository": "ahmadnassri/pkg-config",

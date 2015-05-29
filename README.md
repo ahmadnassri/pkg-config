@@ -2,6 +2,10 @@
 
 > parse the closest `package.json` and get package specific configurations
 
+Useful for package developers to store package-related configuration in dependent's `package.json`.
+
+defaults to `config` as root, which allows you to still leverage npm's standard [config](https://docs.npmjs.com/files/package.json#config)
+
 [![Build Status][travis-image]][travis-url]
 [![Downloads][npm-downloads]][npm-url]
 [![Code Climate][codeclimate-quality]][codeclimate-url]
