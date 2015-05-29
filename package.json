@@ -1,13 +1,13 @@
 {
   "version": "0.0.0",
-  "name": "package-config",
-  "description": "package-config",
+  "name": "pkg-config",
+  "description": "pkg-config",
   "author": "Ahmad Nassri <ahmad@ahmadnassri.com> (https://www.ahmadnassri.com/)",
-  "homepage": "https://github.com/ahmadnassri/package-config",
-  "repository": "ahmadnassri/package-config",
+  "homepage": "https://github.com/ahmadnassri/pkg-config",
+  "repository": "ahmadnassri/pkg-config",
   "license": "MIT",
   "keywords": [
-    "package-config"
+    "pkg-config"
   ],
   "engines": {
     "node": ">=0.10"
@@ -16,7 +16,7 @@
     "index.js"
   ],
   "bugs": {
-    "url": "https://github.com/ahmadnassri/package-config/issues"
+    "url": "https://github.com/ahmadnassri/pkg-config/issues"
   },
   "scripts": {
     "pretest": "standard && echint",

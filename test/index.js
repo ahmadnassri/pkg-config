@@ -17,7 +17,7 @@ beforeEach(function (done) {
   done()
 })
 
-describe('package-config', function () {
+describe('pkg-config', function () {
   it('should get nothing', function (done) {
     should.not.exist(config())
 
