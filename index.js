@@ -3,10 +3,10 @@
 var debug = require('debug')('pkg-config')
 var path = require('path')
 var find = require('find-root')
-var util = require('util')
+var extend = require('xtend')
 
 module.exports = function (namespace, options, fallback) {
-  var opts = util._extend({
+  var opts = extend({
     root: 'config',
     cwd: process.cwd()
   }, options || {})
