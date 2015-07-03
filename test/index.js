@@ -73,7 +73,8 @@ describe('pkg-config', function () {
   })
 
   describe('set cache to false', function () {
-    var opt = { cwd: path.resolve('./tmp') }
+    var tmpDirPath = path.resolve('./test/fixtures/tmp')
+    var opt = { cwd: tmpDirPath }
     var pkgData = ''
 
     it('should write/create a mock of fixtures/package.json in tmp directory', function (done) {
@@ -89,11 +90,11 @@ describe('pkg-config', function () {
         }
       })
 
-      return fs.mkdir(path.resolve('./tmp'), function (err) {
+      return fs.mkdir(tmpDirPath, function (err) {
         if (err && err.code !== 'EEXIST') {
           return done(err)
         }
-        var w = fs.createWriteStream(path.resolve('./tmp/package.json'))
+        var w = fs.createWriteStream(path.resolve(tmpDirPath, 'package.json'))
 
         r.pipe(w)
 
@@ -117,7 +118,7 @@ describe('pkg-config', function () {
       pkgData = JSON.parse(pkgData)
       pkgData.config.foo.bar = 'noop'
 
-      var w = fs.createWriteStream(path.resolve('./tmp/package.json'))
+      var w = fs.createWriteStream(path.resolve(tmpDirPath, 'package.json'))
 
       var rs = new Readable()
       rs.push(JSON.stringify(pkgData))
