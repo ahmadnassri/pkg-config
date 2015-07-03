@@ -4,11 +4,13 @@ var debug = require('debug')('pkg-config')
 var path = require('path')
 var find = require('find-root')
 var extend = require('xtend')
+var fs = require('fs')
 
 module.exports = function (namespace, options, fallback) {
   var opts = extend({
     root: 'config',
-    cwd: process.cwd()
+    cwd: process.cwd(),
+    cache: true
   }, options || {})
 
   try {
@@ -22,7 +24,14 @@ module.exports = function (namespace, options, fallback) {
 
     debug('found root at %s', root)
 
-    var pkg = require(path.join(root, 'package.json'))
+    var pkg
+
+    if (opts.cache) {
+      pkg = require(path.join(root, 'package.json'))
+    } else {
+      pkg = fs.readFileSync(path.join(root, 'package.json'), {enconding: 'utf8'})
+      pkg = JSON.parse(pkg)
+    }
 
     debug('found package.json at %s', root)
 

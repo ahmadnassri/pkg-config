@@ -78,10 +78,11 @@ var config = require('pkg-config')('settings', {
 
 #### Options
 
-| name   | description                                    | default       |
-| ------ | ---------------------------------------------- | ------------- |
-| `root` | `package.json` object root                     | `config`      |
-| `cwd`  | starting directory to look for `package.json`  | `process.cwd` |
+| name    | description                                    | default       |
+| ------  | ---------------------------------------------- | ------------- |
+| `root`  | `package.json` object root                     | `config`      |
+| `cwd`   | starting directory to look for `package.json`  | `process.cwd` |
+| `cache` | cache `package.json`'s content                 | `true`        | 
 
 
 ## Support

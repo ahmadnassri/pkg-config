@@ -5,6 +5,8 @@
 var config = require('..')
 var path = require('path')
 var should = require('should')
+var fs = require('fs')
+var Readable = require('stream').Readable
 
 var options = {}
 
@@ -65,6 +67,87 @@ describe('pkg-config', function () {
       options.root = false
 
       config('custom', options).should.be.eql({ foo: 'bar' })
+
+      done()
+    })
+  })
+
+  describe('set cache to false', function () {
+    var tmpDirPath = path.resolve('./test/fixtures/tmp')
+    var opt = { cwd: tmpDirPath }
+    var pkgData = ''
+
+    it('should write/create a mock of fixtures/package.json in tmp directory', function (done) {
+      var r = fs.createReadStream(path.resolve('./test/fixtures/package.json'))
+
+      r.on('error', function (err) {
+        return done(err)
+      })
+
+      r.on('data', function (data) {
+        if (data) {
+          pkgData += data
+        }
+      })
+
+      return fs.mkdir(tmpDirPath, function (err) {
+        if (err && err.code !== 'EEXIST') {
+          return done(err)
+        }
+        var w = fs.createWriteStream(path.resolve(tmpDirPath, 'package.json'))
+
+        r.pipe(w)
+
+        w.on('finish', function () {
+          return done()
+        })
+
+        w.on('error', function (err) {
+          return done(err)
+        })
+      })
+    })
+
+    it('should cache tmp/package.json with requre', function (done) {
+      config(false, opt).should.be.eql({ foo: { bar: 'baz' } })
+
+      done()
+    })
+
+    it('should modify the tmp/package.json', function (done) {
+      pkgData = JSON.parse(pkgData)
+      pkgData.config.foo.bar = 'noop'
+
+      var w = fs.createWriteStream(path.resolve(tmpDirPath, 'package.json'))
+
+      var rs = new Readable()
+      rs.push(JSON.stringify(pkgData))
+      rs.push(null)
+
+      rs.pipe(w)
+
+      w.on('finish', function () {
+        return done()
+      })
+
+      w.on('error', function (err) {
+        return done(err)
+      })
+    })
+
+    it('should throw an error because cache is set to true by default', function (done) {
+      try {
+        config(false, opt).should.be.eql({ foo: { bar: 'noop' } })
+      } catch (e) {
+        return done()
+      }
+
+      done(new Error('cache options is not set to true by default'))
+    })
+
+    it('should bypass require cache', function (done) {
+      opt.cache = false
+      config(false, opt).should.be.eql({ foo: { bar: 'noop' } })
 
       done()
     })
