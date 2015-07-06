@@ -1,6 +1,6 @@
 'use strict'
 
-var debug = require('debug')('pkg-config')
+var debug = require('debug-log')('pkg-config')
 var path = require('path')
 var find = require('find-root')
 var extend = require('xtend')
