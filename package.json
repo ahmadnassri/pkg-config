@@ -1,5 +1,5 @@
 {
-  "version": "1.0.1",
+  "version": "1.1.0",
   "name": "pkg-config",
   "description": "parse the closest `package.json` and get package specific configurations",
   "author": "Ahmad Nassri <ahmad@ahmadnassri.com> (https://www.ahmadnassri.com/)",
