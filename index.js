@@ -42,7 +42,7 @@ module.exports = function (namespace, options, fallback) {
     var config = namespace ? parent[namespace] : parent
 
     // return found result or default
-    return config ? config : fallback
+    return config || fallback
   } catch (e) {
     debug(e.message)
   }
