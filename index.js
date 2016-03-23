@@ -1,10 +1,10 @@
 'use strict'
 
 var debug = require('debug-log')('pkg-config')
-var path = require('path')
-var find = require('find-root')
 var extend = require('xtend')
+var find = require('find-root')
 var fs = require('fs')
+var path = require('path')
 
 module.exports = function (namespace, options, fallback) {
   var opts = extend({

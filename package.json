@@ -31,16 +31,16 @@
     ]
   },
   "devDependencies": {
-    "codeclimate-test-reporter": "0.1.1",
-    "echint": "^1.3.0",
-    "istanbul": "^0.3.17",
-    "mocha": "^2.2.5",
-    "should": "^7.0.1",
-    "standard": "^5.2.2"
+    "codeclimate-test-reporter": "0.3.1",
+    "echint": "^1.5.3",
+    "istanbul": "^0.4.2",
+    "mocha": "^2.4.5",
+    "should": "^8.2.2",
+    "standard": "^6.0.8"
   },
   "dependencies": {
     "debug-log": "^1.0.0",
-    "find-root": "^0.1.1",
-    "xtend": "^4.0.0"
+    "find-root": "^1.0.0",
+    "xtend": "^4.0.1"
   }
 }
